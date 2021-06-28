@@ -115,6 +115,7 @@
                 position: position,
                 transform: transform(left, top)
             });
+
             let targetElementId = settings.targetElementId;
 
             target.find("#" + targetElementId).css({
@@ -205,6 +206,7 @@
                     transform: transform(x - radius / 2, y - radius / 2)
                 });
             else if (target === undefined) {
+
                 target = $(e.target);
 
                 let width = parseFloat(target.width());
@@ -232,6 +234,7 @@
     }
 
     $.fn[name] = function (options) {
+
         settings = $.extend(
             {
                 color: {
