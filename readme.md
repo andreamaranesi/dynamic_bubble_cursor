@@ -2,7 +2,7 @@
 
 This jQuery Plugin allows you to create a personalized cursor that can change size, color, shape, and **stretch** certain target elements of the dom.
 
-
+![https://github.com/andreamaranesi/dynamic_bubble_cursor/blob/master/demo.gif]()
 
 ## How to Use It
 
