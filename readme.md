@@ -59,26 +59,26 @@ You can add an **object** to personalize the user experience. The following repr
                 onHover: {
                     default: undefined
                 },
-                targets: ["menu"],
+                targets: ["#menu"],
                 elasticFactor: 1.7,
-                targetElementId: "targetId"
+                targetElementSelector: "#targetId"
 ```
 
 
 
-| Property        | Description                                                  |
-| --------------- | :----------------------------------------------------------- |
-| color           | the borderColor of the cursor. You can use as key a **css selector** |
-| backgroundColor | the backgroundColor of the cursor. You can use as key a **css selector** |
-| size            | the borderSize of the bubble cursor. You can use as key a **css selector** |
-| radius          | the radius of the bubble. You can use as key a **css selector** |
-| opacity         | the opacity of the bubble on certain elements. You can use as key a **css selector** |
-| id              | the id of the html element that will be used as bubble       |
-| expand          | if false, it disallows the ability to **stretch** specific elements |
-| targets         | the **id** of html elements that will be stretched           |
-| elasticFactor   | how much should be stretched the elements inside **`targets`** property |
-| targetElementId | inside the stretched element, the **id** of the object that should follow the mouse movement |
-| onHover         | The value is the css **selector** of the element that will be used to replace the default bubble cursor. You can use as key a **css selector** |
+| Property              | Description                                                  |
+| --------------------- | :----------------------------------------------------------- |
+| color                 | the borderColor of the cursor. You can use as key a **css selector** |
+| backgroundColor       | the backgroundColor of the cursor. You can use as key a **css selector** |
+| size                  | the borderSize of the bubble cursor. You can use as key a **css selector** |
+| radius                | the radius of the bubble. You can use as key a **css selector** |
+| opacity               | the opacity of the bubble on certain elements. You can use as key a **css selector** |
+| id                    | the id of the html element that will be used as bubble       |
+| expand                | if false, it disallows the ability to **stretch** specific elements |
+| targets               | the **css selector** of html elements that will be stretched |
+| elasticFactor         | how much should be stretched the elements inside **`targets`** property |
+| targetElementSelector | inside the stretched element, the **css selector** of object that should follow the mouse movement |
+| onHover               | The value is the css **selector** of the element that will be used to replace the default bubble cursor. You can use as key a **css selector** |
 
 
 
@@ -132,7 +132,7 @@ $(function () {
         },
         color: {
             section: "red",
-            "#menu": "rgb(0,0,0,0.2)",
+            "#menu": "rgba(0,0,0,0.2)",
             div: "black",
             default: "red"
         },

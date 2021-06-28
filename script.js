@@ -40,10 +40,10 @@
      */
     const elasticFactor = 1.7;
     /**
-     * the id of the element that should follow the mouse cursor when the user is hover it's parent
+     * the css selector of the element that should follow the mouse cursor when the user is hover it's parent
      * @type {string}
      */
-    const targetElementId = "targetId";
+    const targetElementSelector = "#targetId";
 
     /**
      * it will contains all the plugin settings
@@ -79,9 +79,15 @@
      * @returns undefined or the value of the index of the map
      */
     function checkElement(target, map) {
-        for (const [key, value] of Object.entries(map)) {
-            if ($(key).is(target)) return value;
+        if (Array.isArray(map)) {
+            for (const element of map)
+                if ($(element).is(target)) return true;
+
+            return undefined;
         }
+        for (const [key, value] of Object.entries(map))
+            if ($(key).is(target)) return value;
+
         return map["default"] ?? undefined;
     }
 
@@ -107,14 +113,14 @@
             let top = diffY / elasticFactor;
 
             let left = diffX / elasticFactor;
-            
+
             target.css({
                 transform: transform(left, top)
             });
 
-            let targetElementId = settings.targetElementId;
+            let targetElementSelector = settings.targetElementSelector;
 
-            target.find("#" + targetElementId).css({
+            target.find(targetElementSelector).css({
                 pointerEvents: "none",
                 marginLeft: px(-left),
                 marginTop: px(-top)
@@ -172,12 +178,14 @@
 
             let expand = settings.expand;
 
-            if (!settings.targets.includes($(e.target).attr("id"))) {
+            let isTargetElement = checkElement($(e.target), settings.targets) === true;
+
+            if (!isTargetElement) {
                 if (target !== undefined) {
                     target.css({
                         transform: "none"
                     });
-                    target.find("#" + settings.targetElementId).css({
+                    target.find(settings.targetElementSelector).css({
                         marginLeft: 0,
                         marginTop: 0
                     });
@@ -255,9 +263,9 @@
                 onHover: {
                     default: undefined
                 },
-                targets: ["menu"],
+                targets: ["#menu"],
                 elasticFactor: elasticFactor,
-                targetElementId: targetElementId
+                targetElementSelector: targetElementSelector
             },
 
             options
