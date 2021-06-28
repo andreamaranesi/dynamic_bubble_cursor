@@ -6,7 +6,7 @@ This jQuery Plugin allows you to create a personalized cursor that can change si
 
 ## How to Use It
 
-At <head> level:
+At `<head>` level:
 
 ```html
 <link rel="stylesheet" href="style.css"></link>
@@ -16,7 +16,7 @@ At <head> level:
 
 The **`element`** will be the area in which will be captured mouse events
 
-At <script> level:
+At `<script>` level:
 
 ```js
 $(function () {
@@ -24,7 +24,7 @@ $(function () {
 });
 ```
 
-At <body> level:
+At `<body>` level:
 
 ```html
 <div id="dr_mouse_circle"></div>
@@ -84,7 +84,7 @@ The value is the **css selector** of the element, placed inside the bubble, that
 
 Example:
 
-At <body> level:
+At `<body>` level:
 
 ```html
 <div id="dr_mouse_circle">
@@ -92,7 +92,7 @@ At <body> level:
 </div>
 ```
 
-At <script> level:
+At `<script>` level:
 
 ```js
 $(function () {
