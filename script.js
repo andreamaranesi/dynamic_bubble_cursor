@@ -150,10 +150,11 @@
      * @param body
      */
     function onMouseMove(body) {
+
         $(body).on("mousemove", function (e) {
+
             let x = e.pageX;
             let y = e.pageY;
-            let tag = e.target.nodeName.toLowerCase();
 
             let color = checkElement($(e.target), settings.color);
 
