@@ -100,7 +100,6 @@
             let centerY = offsetTop + height / 2;
             let diffX = x - centerX;
             let diffY = y - centerY;
-            let position = target.css("position");
             let elasticFactor = settings.elasticFactor;
             let endX = Math.abs(diffX * 2) / width;
             let endY = Math.abs(diffY * 2) / height;
@@ -108,11 +107,8 @@
             let top = diffY / elasticFactor;
 
             let left = diffX / elasticFactor;
-
-            if (position === "static") position = "relative";
-
+            
             target.css({
-                position: position,
                 transform: transform(left, top)
             });
 
